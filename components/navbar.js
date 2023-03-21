@@ -1,8 +1,7 @@
 import Logo from './logo'
-import NextLink from 'next/link'
+import Link from 'next/link'
 import {
   Container,
-  Link,
   Box,
   Stack,
   Heading,
@@ -23,13 +22,14 @@ const LinkItem = ({ href, path, children }) => {
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
 
   return (
-    <Link
-      p={2}
-      bg={active ? 'glassTeal' : undefined}
-      color={active ? '#202023' : inactiveColor}
-      href={href}
-    >
-      {children}
+    <Link href={href}>
+      <Text
+        p={2}
+        bg={active ? 'glassTeal' : undefined}
+        color={active ? '#202023' : inactiveColor}
+      >
+        {children}
+      </Text>
     </Link>
   )
 }
@@ -89,15 +89,15 @@ const NavBar = props => {
                 aria-label="Options"
               />
               <MenuList>
-                <NextLink href="/" passHref>
+                <Link href="/" passHref>
                   <MenuItem as={Text}>About</MenuItem>
-                </NextLink>
-                <NextLink href="/works" passHref>
+                </Link>
+                <Link href="/works" passHref>
                   <MenuItem as={Text}>Works</MenuItem>
-                </NextLink>
-                <NextLink href="/posts" passHref>
+                </Link>
+                <Link href="/posts" passHref>
                   <MenuItem as={Text}>Posts</MenuItem>
-                </NextLink>
+                </Link>
               </MenuList>
             </Menu>
           </Box>
